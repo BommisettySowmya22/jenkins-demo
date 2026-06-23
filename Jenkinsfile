@@ -8,15 +8,15 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'javac HelloWorld.java'
+                sh 'docker build -t hello-java .'
             }
         }
 
-        stage('Run') {
+        stage('Run Container') {
             steps {
-                sh 'java HelloWorld'
+                sh 'docker run --rm hello-java'
             }
         }
     }
