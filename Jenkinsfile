@@ -4,25 +4,19 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                echo 'Cloning Repository'
+                echo 'Cloning repository'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building Application'
+                sh 'javac HelloWorld.java'
             }
         }
 
-        stage('Test') {
+        stage('Run') {
             steps {
-                echo 'Testing Application'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying Application'
+                sh 'java HelloWorld'
             }
         }
     }
